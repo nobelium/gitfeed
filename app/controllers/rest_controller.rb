@@ -1,0 +1,2 @@
+class RestController < ApplicationController
+end
