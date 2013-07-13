@@ -28,7 +28,7 @@ test:
   database: gitfeed_test
   pool: 5
   username: root
-  password:
+  password: samurai
   socket: /var/run/mysqld/mysqld.sock
 
 production:
