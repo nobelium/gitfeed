@@ -38,5 +38,5 @@ production:
   database: gitfeed_production
   pool: 5
   username: root
-  password:
+  password: samurai
   socket: /var/run/mysqld/mysqld.sock
