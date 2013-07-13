@@ -1,0 +1,41 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :github_user_name %><br />
+    <%= f.text_field :github_user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :fb_user_name %><br />
+    <%= f.text_field :fb_user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :github_user_id %><br />
+    <%= f.text_field :github_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fb_user_id %><br />
+    <%= f.text_field :fb_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :github_access_token %><br />
+    <%= f.text_field :github_access_token %>
+  </div>
+  <div class="field">
+    <%= f.label :fb_access_token %><br />
+    <%= f.text_field :fb_access_token %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Github user name:</b>
+  <%= @user.github_user_name %>
+</p>
+
+<p>
+  <b>Fb user name:</b>
+  <%= @user.fb_user_name %>
+</p>
+
+<p>
+  <b>Github user:</b>
+  <%= @user.github_user_id %>
+</p>
+
+<p>
+  <b>Fb user:</b>
+  <%= @user.fb_user_id %>
+</p>
+
+<p>
+  <b>Github access token:</b>
+  <%= @user.github_access_token %>
+</p>
+
+<p>
+  <b>Fb access token:</b>
+  <%= @user.fb_access_token %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

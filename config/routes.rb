@@ -1,4 +1,10 @@
 Gitfeed::Application.routes.draw do
+  resources :repos
+
+
+  resources :users
+
+
   get "index/index"
 
   # The priority is based upon order of creation:
