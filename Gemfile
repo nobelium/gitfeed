@@ -13,7 +13,7 @@ gem 'thin'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'octokit'
+gem 'github_api'
 gem 'fb_graph'
 
 gem 'haml'
