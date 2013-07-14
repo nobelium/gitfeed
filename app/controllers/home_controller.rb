@@ -80,7 +80,7 @@ class HomeController < ApplicationController
                                   fb_config["development"]["app_secret"])
     fb_client = fb_auth.client
     fb_client.authorization_code = params[:code]
-    fb_token = client.access_token! :client_auth_body
+    fb_token = fb_client.access_token! :client_auth_body
     fb_user = FbGraph::User.me(fb_token).fetch
     
     p fb_token
