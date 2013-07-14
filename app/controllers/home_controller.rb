@@ -56,7 +56,7 @@ class HomeController < ApplicationController
 
     g_user = github.users.get
 
-    handle = user.instance_variable_get("@response").instance_variable_get("@env")[:body].login
+    handle = g_user.instance_variable_get("@response").instance_variable_get("@env")[:body].login
 
     begin
       search_user = User.find_by_github_handle( handle )
