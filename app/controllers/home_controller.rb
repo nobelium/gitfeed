@@ -78,8 +78,12 @@ class HomeController < ApplicationController
     fb_auth = FbGraph::Auth.new(
                                   fb_config["development"]["app_id"],
                                   fb_config["development"]["app_secret"])
+
     fb_client = fb_auth.client
+    fb_client.redirect_uri = "http://seekshiva.in:3000/home/fb/"
     fb_client.authorization_code = params[:code]
+
+
     fb_token = fb_client.access_token! :client_auth_body
     fb_user = FbGraph::User.me(fb_token).fetch
     
