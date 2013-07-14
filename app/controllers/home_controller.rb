@@ -73,6 +73,21 @@ class HomeController < ApplicationController
   end
 
   def fb_callback
+    fb_config     = YAML::load(File.open("#{Rails.root}/config/fb.yml"))
 
+    fb_auth = FbGraph::Auth.new(
+                                  fb_config["development"]["app_id"],
+                                  fb_config["development"]["app_secret"])
+    fb_client = fb_auth.client
+    fb_client.authorization_code = params[:code]
+    fb_token = client.access_token! :client_auth_body
+    fb_user = FbGraph::User.me(fb_token).fetch
+    
+    p fb_token
+    p fb_user
+    
+    # fb_auth.exchange_token! 'short-life-access-token'
+    # fb_auth.access_token
+    
   end
 end
