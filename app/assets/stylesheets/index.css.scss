@@ -1,4 +1,8 @@
 
+.container {
+    max-width: 680px;
+}
+
 /* Custom container */
 .container-narrow {
     margin: 0 auto;
@@ -29,3 +33,100 @@
 .marketing p + h4 {
     margin-top: 28px;
 }
+
+
+
+
+
+
+$off : #fc868a;
+$on : #a6f779;
+
+body {
+    background: #fafafa;
+}
+
+* {
+    box-sizing:border-box;
+}
+::selection{
+    background:transparent;
+}
+
+#content {
+    width: 100px;
+}
+
+label:before {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 30px;
+    display: block;
+    border-radius: 5px;
+    
+    -webkit-box-shadow: inset 0 4px 0px rgba(0,0,0,.05), 0 0px 1px rgba(255,255,255,.8),0 1px 2px #fff;
+    box-shadow: inset 0 4px 0px rgba(0,0,0,.05), 0 0px 1px rgba(255,255,255,.8),0 1px 2px #fff;
+    position: relative;
+    z-index: -1;
+    padding: 1px;
+}
+
+label:before {
+    background: $on;
+}
+
+
+/* 1 -Hide the inputs */
+input[type=checkbox] {
+    display: none;
+}
+
+/* 2 -Prepare labels */
+#thumb {
+    content: '';
+    height: 24px;
+    display: block;
+    float: left;
+    width: 30px;
+    padding: 0px;
+    margin: -30px 2px;
+    border-radius: 4px;
+    background: #fff;
+    
+    -webkit-box-shadow: 0 4px #eff1eb, 0 5px 15px rgba(0,0,0,.2);
+    box-shadow: 0 4px #eff1eb, 0 5px 15px rgba(0,0,0,.2);
+    position: absolute;
+    z-index: 1;
+}
+
+/* 3 -Prepare the fonts ? */
+label {
+    display: block;
+    margin: 8px 0;
+}
+
+
+
+label:before,
+#thumb,
+ {
+	     -webkit-transition: all .2s;
+	     -moz-transition: all .2s;
+	     transition: all .2s;
+}
+@for $i from 0 through 50 {
+     #repo_#{$i}:checked ~ label[for=repo_#{$i}]:before{
+
+	-webkit-transition: all .2s;
+	-moz-transtion: all .2s;
+	transition: all .2s;
+     }	
+     #repo_#{$i}:checked ~ label[for=repo_#{$i}]:before{
+      background:$off;			   			 
+     }
+     #repo_#{$i}:checked ~ label[for=repo_#{$i}] #thumb{
+     		margin: -30px 40px;
+     }
+}
+

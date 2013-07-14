@@ -80,4 +80,10 @@ class ReposController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def subscribe
+  end
+  
+  def unsubscribe
+  end
 end

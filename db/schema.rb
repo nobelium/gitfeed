@@ -11,23 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130713231900) do
-
-  create_table "repos", :force => true do |t|
-    t.string   "name"
-    t.integer  "owner_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130713234742) do
 
   create_table "subscribes", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "repo_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "repo_fullname"
   end
 
-  add_index "subscribes", ["repo_id"], :name => "index_subscribes_on_repo_id"
   add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"
 
   create_table "users", :force => true do |t|

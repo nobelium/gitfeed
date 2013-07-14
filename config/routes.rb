@@ -1,15 +1,17 @@
-Gitfeed::Application.routes.draw do
+Gitfeed::Application.routes.draw do 
   get "home/index"
 
   resources :repos
-
 
   resources :users
 
 
   match 'home/github' => 'home#github_callback'
   match 'home/fb' => 'home#fb_callback'
-
+  match 'repo/:owner/:repo_name/subscribe' => 'subscribes#subscribe'
+  match 'repo/:owner/:repo_name/unsubscribe' => 'subscribes#unsubscribe'
+  match 'feed/:owner/:repo_name/' => 'subscribes#fbpush'
+  match 'fb/:owner/:repo_name/' => 'subscribes#fbog'
 
   get "index/index"
 

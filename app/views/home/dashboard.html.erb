@@ -13,13 +13,45 @@
 
 <div id="wrap">
   <div class="container">
-
-    <div class="jumbotron">
-      <h1>Super awesome marketing speak!</h1>
-      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <a class="btn btn-large btn-success" href="<%= @github_login_url %>">Sign in with github</a>
-      <a class="btn btn-large btn-primary" href="<%= @fb_login_url %>">Sign in with Facebook</a>
-    </div>
+    <div class='span6' id='msg'></div>
+    <table class="table table-bordered">
+      <tbody style="color: #666;">
+	<% id=0
+	   @repos.list do |repo| %>
+	<tr><td>
+	    <% # checked = unsubscribed %>
+	    <div id="content" class="pull-right">
+	      <input type="checkbox" class="check" data-bind="<%= repo.full_name %>" id="repo_<%= id %>" <%= if @my_repos[repo.full_name].nil? then "checked" end %>/>
+	      <label for="repo_<%= id %>" class="subscribed_yes"><div id="thumb"></div></label>
+	    </div>
+	    <% id+=1 %>
+	    <h4><%= repo.full_name %></h4>
+	</td></tr>
+	<% end %>
+    </table>
   </div>
-
 </div>
+
+
+<script type='text/javascript'>
+$(function(){
+  $("input[type=checkbox]").click(function(event){
+    var url = $(this).is(":checked") ? "/repo/"+$(this).attr("data-bind")+"/unsubscribe":"/repo/"+$(this).attr("data-bind")+"/subscribe";
+    $.ajax({
+      'url' : url,
+      method: "get",
+      success: function(data){
+        var div = $(document.createElement("div"));
+        div.attr("class","alert");
+        $("#msg").append(div);
+        window.setTimeout(function(){
+          $("#msg").fadeTo(500,0).slideUp(500, function(){
+                $(this).remove();
+          });
+        });
+      }
+    });
+    
+  });
+});
+</script>
