@@ -51,10 +51,25 @@ class HomeController < ApplicationController
                         )
     
     github_token = github.get_token(params[:code])
-    
-    user = Github::Users.new( :oauth_token => github_token ).get
 
-    p user
+    github = Github.new :oauth_token => github_token.instance_variable_get("@token")
+
+    g_user = github.users.get
+
+    handle = user.instance_variable_get("@response").instance_variable_get("@env")[:body].login
+
+    begin
+      search_user = User.find_by_github_handle( handle )
+      session[:user_id] = search_user.id
+    rescue
+      new_user = User.new(
+               :github_handle => handle,
+               :github_access_token =>  github_token
+               )
+      session[:user_id] = new_user.id
+    end
+      
+    redirect_to root_path
   end
 
   def fb_callback
