@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'mysql2'
 
-gem 'knockout-rails'
+gem 'rails-backbone'
 gem 'anjlab-bootstrap-rails', '>= 2.2', :require => 'bootstrap-rails'
 gem 'thin'
 gem 'execjs'
