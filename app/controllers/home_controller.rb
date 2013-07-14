@@ -52,6 +52,12 @@ class HomeController < ApplicationController
     
     github_token = github.get_token(params[:code])
     
-    p github_token
+    user = Github::Users.new( :oauth_token => github_token ).get
+
+    p user
+  end
+
+  def fb_callback
+
   end
 end

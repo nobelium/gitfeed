@@ -7,6 +7,10 @@ Gitfeed::Application.routes.draw do
   resources :users
 
 
+  match 'home/github' => 'home#github_callback'
+  match 'home/fb' => 'home#fb_callback'
+
+
   get "index/index"
 
   # The priority is based upon order of creation:
