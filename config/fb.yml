@@ -1,0 +1,10 @@
+development: &defaults
+  app_id: 1398814903665927
+  app_secret: 03d62bcc0e32dbab1375a80381787791
+  scope: read_stream, publish_actions, publish_stream
+
+production: 
+  <<:  *defaults
+
+test:
+  <<:  *defaults

@@ -1,10 +1,10 @@
 development: &defaults
-		app_id: 36c8aad5a6f0264c688e
-		app_secret: a82da42d76ce7e6bdcce81a6d3ff3c11fb0fb528
-		scope: repo
+  app_id: 36c8aad5a6f0264c688e
+  app_secret: a82da42d76ce7e6bdcce81a6d3ff3c11fb0fb528
+  scope: repo
 
 production: 
-		<<:  *defaults
+  <<:  *defaults
 
 test:
-		<<:  *defaults
+  <<:  *defaults

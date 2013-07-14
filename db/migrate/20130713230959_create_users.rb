@@ -1,10 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :github_user_name
-      t.string :fb_user_name
-      t.string :github_user_id
-      t.string :fb_user_id
+      t.string :github_handle
+      t.string :fb_username
+      t.string :fb_userid
       t.string :github_access_token
       t.string :fb_access_token
 

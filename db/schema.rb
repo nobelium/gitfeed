@@ -31,10 +31,9 @@ ActiveRecord::Schema.define(:version => 20130713231900) do
   add_index "subscribes", ["user_id"], :name => "index_subscribes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "github_user_name"
-    t.string   "fb_user_name"
-    t.string   "github_user_id"
-    t.string   "fb_user_id"
+    t.string   "github_handle"
+    t.string   "fb_username"
+    t.string   "fb_userid"
     t.string   "github_access_token"
     t.string   "fb_access_token"
     t.datetime "created_at",          :null => false
