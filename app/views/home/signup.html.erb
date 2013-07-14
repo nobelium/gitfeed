@@ -1,0 +1,29 @@
+<div class="navbar">
+  <div class="navbar-inner"> 
+    <div class="container-narrow">
+      <a class="brand" href="/">GitFeed</a>
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="wrap">
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Super awesome marketing speak!</h1>
+      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <% unless @github_login_url.nil? %>
+      <a class="btn btn-large btn-success" href="<%= @github_login_url %>">Sign in with github</a>
+      <% end %>
+      <% unless @fb_login_url.nil? %>
+      <a class="btn btn-large btn-primary" href="<%= @fb_login_url %>">Sign in with Facebook</a>
+      <% end %>
+    </div>
+  </div>
+
+</div>
